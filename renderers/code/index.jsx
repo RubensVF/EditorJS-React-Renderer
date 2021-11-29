@@ -15,21 +15,13 @@
 //#region imports
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import codeOutputStyle from './style';
 import Highlight from 'react-highlight'
 
 //#endregion
 
-const CodeOutput = ({ data, style, classNames, config }) => {
-  console.log(`data: ${data}`);
+const CodeOutput = ({ data }) => {
   console.log(`data.code: ${data.code}`);
-  if (!data) return '';
-  if (!style || typeof style !== 'object') style = {};
-  if (!config || typeof config !== 'object') config = {};
-  if (!classNames || typeof classNames !== 'string') classNames = '';
-
-  const paragraphStyle = config.disableDefaultStyle ? style : { ...codeOutputStyle, ...style };
-  
+  console.log(`data.code: ${ReactHtmlParser(data.code)}`);
   return <Highlight>{ ReactHtmlParser(data.code) }</Highlight>;
 };
 
