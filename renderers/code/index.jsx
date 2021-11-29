@@ -20,13 +20,7 @@ import Highlight from 'react-highlight'
 //#endregion
 
 const CodeOutput = ({ data }) => {
-  console.log(`data.code: ${data.code}`);
-  console.log(`data.code: ${ReactHtmlParser(data.code)}`);
-  return <>
-          <Highlight>{ ReactHtmlParser(data.code) }</Highlight>
-          <Highlight>{'code example(){}' }</Highlight>
-          <p>{ ReactHtmlParser(data.code) }</p>
-        </>;
+  return <Highlight language="javascript">{ ReactHtmlParser(data.code) }</Highlight>;
 };
 
 export default CodeOutput;
