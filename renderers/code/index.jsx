@@ -21,8 +21,8 @@ import Highlight from 'react-highlight'
 //#endregion
 
 const CodeOutput = ({ data, style, classNames, config }) => {
-  console.log('data: '+data);
-  console.log('data.code: '+data.code);
+  console.log(`data: ${data}`);
+  console.log(`data.code: ${data.code}`);
   if (!data) return '';
   if (!style || typeof style !== 'object') style = {};
   if (!config || typeof config !== 'object') config = {};
@@ -30,7 +30,7 @@ const CodeOutput = ({ data, style, classNames, config }) => {
 
   const paragraphStyle = config.disableDefaultStyle ? style : { ...codeOutputStyle, ...style };
   
-  return data.code ? <Highlight>{ ReactHtmlParser(data.code) }</Highlight>:'';
+  return <Highlight>{ ReactHtmlParser(data.code) }</Highlight>;
 };
 
 export default CodeOutput;
