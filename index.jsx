@@ -32,6 +32,7 @@ import WarningOutput from './renderers/warning/index.jsx';
 import TableOutput from './renderers/table/index.jsx';
 import DelimiterOutput from './renderers/delimiter/index.jsx';
 import CodeBoxOutput from './renderers/codeBox/index.jsx';
+import CodeOutput from './renderers/code/index.jsx';
 //#endregion
 
 const Output = ({ data, style, classNames, config, renderers }) => {
@@ -45,6 +46,9 @@ const Output = ({ data, style, classNames, config, renderers }) => {
     let Renderer = null;
 
     switch (block.type.toLowerCase()) {
+      case 'code':
+        Renderer = renderers.code || CodeOutput;
+        return <Renderer key={ i } data={ block.data } style={ style.codeBox || {}} config={ config.codeBox || {}} classNames={ classNames.codeBox || {}} />;
       case 'codebox':
         Renderer = renderers.codeBox || CodeBoxOutput;
         return <Renderer key={ i } data={ block.data } style={ style.codeBox || {}} config={ config.codeBox || {}} classNames={ classNames.codeBox || {}} />;
@@ -91,6 +95,6 @@ const Output = ({ data, style, classNames, config, renderers }) => {
 };
 
 export {
-  HeaderOutput, ParagraphOutput, ImageOutput, VideoOutput, EmbedOutput, TableOutput, CodeBoxOutput, ListOutput, QuoteOutput,
+  HeaderOutput, ParagraphOutput, ImageOutput, VideoOutput, EmbedOutput, TableOutput, CodeBoxOutput, ListOutput, QuoteOutput,CodeOutput,
   ChecklistOutput, WarningOutput, DelimiterOutput, Output as default
 };
