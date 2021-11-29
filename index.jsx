@@ -44,8 +44,9 @@ const Output = ({ data, style, classNames, config, renderers }) => {
 
   return data.blocks.map((block, i) => {
     let Renderer = null;
-
+    console.log(block.type.toLowerCase());
     switch (block.type.toLowerCase()) {
+
       case 'code':
         Renderer = renderers.code || CodeOutput;
         return <Renderer key={ i } data={ block.data } style={ style.codeBox || {}} config={ config.codeBox || {}} classNames={ classNames.codeBox || {}} />;
