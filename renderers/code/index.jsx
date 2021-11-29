@@ -21,6 +21,8 @@ import Highlight from 'react-highlight'
 //#endregion
 
 const CodeOutput = ({ data, style, classNames, config }) => {
+  console.log('data: '+data);
+  console.log('data.code: '+data.code);
   if (!data) return '';
   if (!style || typeof style !== 'object') style = {};
   if (!config || typeof config !== 'object') config = {};
