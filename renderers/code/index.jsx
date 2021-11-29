@@ -14,13 +14,12 @@
 
 //#region imports
 import React from 'react';
-import ReactHtmlParser from 'react-html-parser';
 import Highlight from 'react-highlight'
 
 //#endregion
 
 const CodeOutput = ({ data }) => {
-  return <Highlight language="javascript">{ ReactHtmlParser(data.code) }</Highlight>;
+  return <Highlight language="javascript">{ data.code }</Highlight>;
 };
 
 export default CodeOutput;
